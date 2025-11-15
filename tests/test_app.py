@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-def test_root_deve_retornar_uma_msg_e_um_ok():
+def test_root_deve_retornar_uma_msg_e_um_ok(client):
     
     response = client.get("/")
     
@@ -8,7 +8,7 @@ def test_root_deve_retornar_uma_msg_e_um_ok():
     assert response.json() == {"message": "Rodando no fastapi"}
 
 
-def test_criar_usuario():
+def test_criar_usuario(client):
     
     response = client.post("/users/", json={
             'username': 'alice',

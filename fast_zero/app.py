@@ -9,3 +9,8 @@ app = FastAPI()
 @app.get("/", status_code=HTTPStatus.OK, response_model=Message)
 def read_root():
     return {"message": "Rodando no fastapi"}
+
+
+@app.post("/users/")
+def create_user():
+    ...

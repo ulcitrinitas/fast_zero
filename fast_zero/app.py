@@ -11,6 +11,6 @@ def read_root():
     return {"message": "Rodando no fastapi"}
 
 
-@app.post("/users/")
+@app.post("/users/", status_code=HTTPStatus.CREATED)
 def create_user():
     ...

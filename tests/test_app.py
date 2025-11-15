@@ -1,10 +1,6 @@
 from http import HTTPStatus
-from fastapi.testclient import TestClient
-
-from fast_zero.app import app
 
 def test_root_deve_retornar_uma_msg_e_um_ok():
-    client = TestClient(app)
     
     response = client.get("/")
     
@@ -13,7 +9,6 @@ def test_root_deve_retornar_uma_msg_e_um_ok():
 
 
 def test_criar_usuario():
-    client = TestClient(app)
     
     response = client.post("/users/", json={
             'username': 'alice',

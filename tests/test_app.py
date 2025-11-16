@@ -35,4 +35,20 @@ def test_mostrar_usuarios(client):
             }
         ]}
 
+
+def test_atualizar_usuario(client):
+    response = client.put(
+        "/users/1",
+        json={
+                      'username': 'bob',
+            'email': 'bob@example.com',
+            'password': 'mynewpassword'
+        }
+    )
     
+    assert response.status_code == HTTPStatus.CREATED
+    assert response.json() == {
+        'username': 'bob',
+        'email': 'bob@example.com',
+        'id': 1
+    }

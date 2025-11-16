@@ -59,3 +59,10 @@ def test_atualizar_usuario(client):
         "email": "bob@example.com",
         "id": 1,
     }
+
+
+def test_deletar_usuario(client):
+    response = client.delete("/users/id")
+    
+    assert response.status_code == HTTPStatus.OK
+    assert response.json() == {'message': "User deleted"}

@@ -62,7 +62,7 @@ def test_atualizar_usuario(client):
 
 
 def test_deletar_usuario(client):
-    response = client.delete("/users/id")
+    response = client.delete("/users/1")
     
     assert response.status_code == HTTPStatus.OK
     assert response.json() == {'message': "User deleted"}
